@@ -11,7 +11,7 @@ const SignUp = () => {
       <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
 
       {/* SignUp Form */}
-      <div className="z-10 w-full max-w-3xl bg-opacity-90 rounded-lg shadow-lg p-6 md:p-10 border-2 border-white/60  m-10">
+      <div className="z-10 w-full max-w-3xl bg-opacity-90 rounded-lg shadow-lg p-6 md:p-10 border-2 border-white/90  m-10">
         <h2 className="text-3xl font-bold text-center mb-6 text-white">Register to <span className="text-indigo-400">Find</span><span className="text-orange-500">Mate</span></h2>
 
         <form className="space-y-4">
@@ -92,7 +92,7 @@ const SignUp = () => {
           </div>
 
           <div className="flex items-start gap-2 mt-2">
-           <input type="checkbox" defaultChecked className="checkbox checkbox-primary  bg-white" required />
+           <input type="checkbox"  className="checkbox checkbox-primary  bg-white" required />
 
             <p className="text-sm text-white">
               I agree to the{" "}

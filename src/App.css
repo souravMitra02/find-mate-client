@@ -7,8 +7,3 @@
   font-family: "Poppins", sans-serif;
 
 }
-
-.divider::before,
-.divider::after {
-  border-color: white !important;
-}
