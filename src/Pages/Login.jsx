@@ -4,14 +4,14 @@ import banner2 from "../assets/banner32.jpg"; // তোমার background imag
 const Login = () => {
   return (
     <div
-      className="min-h-screen bg-cover bg-center relative flex justify-center items-center px-4"
+      className="min-h-screen bg-cover bg-center relative flex justify-center items-center px-4 "
       style={{ backgroundImage: `url(${banner2})` }}
     >
       {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
 
       {/* Login Form */}
-      <div className="z-10 w-full max-w-md bg-opacity-90 rounded-lg shadow-lg p-6 md:p-10 border-2 border-white/90 m-4">
+      <div className="z-10 w-full max-w-md bg-opacity-90 rounded-lg shadow-lg p-6 md:p-10 border-2 border-white/90 m-10">
         <h2 className="text-3xl font-bold text-center mb-6 text-white">Login to <span className="text-indigo-400">Find</span><span className="text-orange-500">Mate</span></h2>
 
         <form className="space-y-4">
