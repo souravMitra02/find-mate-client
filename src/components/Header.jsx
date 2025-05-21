@@ -63,7 +63,7 @@ const Header = () => {
             </ul>
           </div>
           <NavLink to="/" className="text-2xl font-bold ml-2">
-            FindMate
+           <h2> <span className="text-indigo-400">Find</span><span className="text-orange-500">Mate</span></h2>
           </NavLink>
         </div>
 
