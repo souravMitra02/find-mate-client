@@ -50,7 +50,8 @@ const Banner = () => {
       </Swiper>
 
       {/* Floating Search Box */}
-      <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-white shadow-lg rounded-lg p-6 flex flex-col md:flex-row items-center gap-4 w-full max-w-5xl z-30 mx-4 justify-between">
+      <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm
+ shadow-lg rounded-lg p-6 flex flex-col md:flex-row items-center gap-4 w-full max-w-5xl z-30 mx-4 justify-between">
         {/* Location Input */}
         <input
           type="text"
@@ -61,13 +62,13 @@ const Banner = () => {
         {/* Budget Input */}
         <input
           type="number"
-          placeholder="Max Budget (e.g. 8000)"
+          placeholder="Max Budget (e.g. 8000 Taka)"
           className="input  w-full md:w-1/4 focus:border-2 focus:border-blue-600 focus:outline-none rounded-full p-5"
         />
 
         {/* Room Type Input */}
         <select
-  className="w-full md:w-1/4 rounded-full py-2 border border-gray-300  px-3 focus:border-2 focus:border-blue-600 focus:outline-none"
+  className="w-full md:w-1/4 rounded-full py-2 border border-gray-300  px-3 focus:border-2 focus:border-blue-600 focus:outline-none bg-white"
   defaultValue=""
 >
   <option value="" disabled>
