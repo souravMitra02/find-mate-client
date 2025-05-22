@@ -2,8 +2,6 @@ import image1 from '../assets/dhaka.jpg'
 import image2 from '../assets/barishal.jpg'
 import image3 from '../assets/Rajshahi.jpg'
 import image4 from '../assets/Khulna.jpg'
-import image5 from '../assets/dhaka.jpg'
-import image6 from '../assets/dhaka.jpg'
 import { IoLocationSharp } from 'react-icons/io5'
 
 const TopCitiesSection = () => {
@@ -26,7 +24,7 @@ const TopCitiesSection = () => {
 
 
   {/* Middle: Three Smaller Cities */}
-  <div className="flex flex-col">
+  <div className="flex flex-col gap-5">
   <div className="relative group overflow-hidden">
   <img src={image2} alt="" className="w-full h-[200px] object-cover rounded-xl" />
 

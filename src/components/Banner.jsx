@@ -49,40 +49,39 @@ const Banner = () => {
         ))}
       </Swiper>
 
-      {/* Floating Search Box */}
+      {/*  Search Box */}
       <div className="absolute -bottom-12 left-1/2 transform -translate-x-1/2 bg-white/80 backdrop-blur-sm
- shadow-lg rounded-lg p-6 flex flex-col md:flex-row items-center gap-4 w-full max-w-5xl z-30 mx-4 justify-between">
-        {/* Location Input */}
-        <input
-          type="text"
-          placeholder="Location (e.g. Dhaka, Mirpur)"
-          className="input input-bordered w-full md:w-1/4 focus:border-2 focus:border-blue-600 focus:outline-none rounded-full p-5"
-        />
+shadow-lg rounded-lg p-6 flex flex-col md:flex-row flex-wrap items-center gap-4 w-[95%] max-w-6xl z-30 justify-center md:justify-between">
 
-        {/* Budget Input */}
-        <input
-          type="number"
-          placeholder="Max Budget (e.g. 8000 Taka)"
-          className="input  w-full md:w-1/4 focus:border-2 focus:border-blue-600 focus:outline-none rounded-full p-5"
-        />
+  {/* Location Input */}
+  <input
+    type="text"
+    placeholder="Location (e.g. Dhaka, Mirpur)"
+    className="input input-bordered flex-1 min-w-[230px] md:min-w-[180px] focus:border-2 focus:border-blue-600 focus:outline-none rounded-full p-4"
+  />
 
-        {/* Room Type Input */}
-        <select
-  className="w-full md:w-1/4 rounded-full py-2 border border-gray-300  px-3 focus:border-2 focus:border-blue-600 focus:outline-none bg-white"
-  defaultValue=""
->
-  <option value="" disabled>
-    Room Type
-  </option>
-  <option value="single">Single</option>
-  <option value="shared">Shared</option>
-  <option value="any">Any</option>
-</select>
+  {/* Budget Input */}
+  <input
+    type="number"
+    placeholder="Max Budget (e.g. 8000 Taka)"
+    className="input input-bordered flex-1 min-w-[230px] md:min-w-[180px] focus:border-2 focus:border-blue-600 focus:outline-none rounded-full p-4"
+  />
 
+  {/* Room Type Dropdown */}
+  <select
+      className="flex-1 min-w-[230px] md:min-w-[180px] rounded-full py-2 px-5 border border-gray-300 focus:border-2 focus:border-blue-600 focus:outline-none bg-white"
+      defaultValue=""
+    >
+      <option value="" disabled>Room Type</option>
+      <option value="single">Single</option>
+      <option value="shared">Shared</option>
+      <option value="any">Any</option>
+    </select>
 
-        {/* Search Button */}
-        <button className="btn btn-primary rounded-full w-full md:w-auto px-5">Search</button>
-      </div>
+  {/* Search Button */}
+  <button type='button' className="btn btn-primary rounded-full min-w-[230px] md:min-w-[140px] px-6">Search</button>
+</div>
+
     </div>
   );
 };
