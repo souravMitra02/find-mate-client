@@ -20,7 +20,7 @@ const Banner = () => {
                   Welcome to <span className="text-indigo-400">Roommate Finder</span>
                   <span className="text-primary">
           <Typewriter
-            words={["Best Deals", "Perfect Match"]}
+            words={[" Best Deals", " Perfect Match"]}
             loop={0}
             cursor
             cursorStyle="|"

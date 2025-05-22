@@ -2,6 +2,8 @@ import {  useContext } from "react";
 import { NavLink, useNavigate } from "react-router";
 import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
+import { Tooltip } from 'react-tooltip';
+
 
 const Header = () => {
     
@@ -127,7 +129,7 @@ const Header = () => {
         <div className="navbar-end gap-3 items-center">
           {/* Theme Toggle Button */}
          <label className="swap swap-rotate">
-  {/* this hidden checkbox controls the state */}
+
   <input type="checkbox" className="theme-controller" value="synthwave" />
 
   {/* sun icon */}
@@ -164,17 +166,16 @@ const Header = () => {
           ) : (
             <>
               <div className="relative group">
-                {user?.photoURL && (
-                  <img
-                    src={user?.photoURL || ""}
-                    alt="user"
-                    data-reference="no-reference"
-                    className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer"
-                  />
-                )}
-                <div className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap z-50">
-                  {user?.displayName || "User"}
-                </div>
+                <>
+  <img
+    src={user?.photoURL || ""}
+    alt="user"
+    className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer"
+    data-tooltip-id="user-tooltip"
+    data-tooltip-content={user?.displayName || "User"}
+  />
+  <Tooltip id="user-tooltip" place="bottom" />
+</>
               </div>
               <button
                 onClick={handleLogOut}

@@ -8,7 +8,7 @@ const TopCitiesSection = () => {
   return (
     <section className="max-w-6xl mx-auto px-4 py-16">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 mt-10">
-        Top Cities in Bangladesh
+        Top Hotels in Bangladesh
       </h2>
 
     <div className="grid grid-cols-3 gap-6">
