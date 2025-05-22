@@ -1,7 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
-
+import { Typewriter } from "react-simple-typewriter";
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -16,8 +16,20 @@ const Banner = () => {
     <div className="relative w-full h-[80vh] md:h-[100vh]">
       {/* Overlay Text */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center z-20 px-6 max-w-3xl">
-        <h1 className="text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-lg mb-5">
-          Welcome to <span className="text-indigo-400">Roommate Finder</span>
+        <h1 className="text-4xl md:text-4xl font-extrabold tracking-wide drop-shadow-lg mb-5">
+                  Welcome to <span className="text-indigo-400">Roommate Finder</span>
+                  <span className="text-primary">
+          <Typewriter
+            words={["Best Deals", "Perfect Match"]}
+            loop={0}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+            onLoopDone={() => console.log("Typing Done!")}
+          />
+        </span>
         </h1>
         <p className="text-lg md:text-2xl font-light drop-shadow-md mb-8">
           Find the perfect space <span className="font-semibold">and roommate</span> today!
