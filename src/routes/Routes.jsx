@@ -9,6 +9,7 @@ import BrowseListings from "../Pages/BrowseListings";
 import MyListings from "../Pages/MyListings";
 import UpdatePost from "../Pages/UpdatePost";
 import PostDetails from "../Pages/PostDetails";
+import PrivateRoute from "../PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +19,12 @@ export const router = createBrowserRouter([
         children: [
         { index: true, element: <Home /> }, 
       { path: "login", element: <Login /> },
-            { path: "register", element: <SignUp /> },
+          { path: "register", element: <SignUp /> },
+             { path: "add-post", element: <PrivateRoute><AddPost /></PrivateRoute> },
+      { path: "browse-listings", element: <BrowseListings /> },
+      { path: "my-listings", element: <PrivateRoute><MyListings /></PrivateRoute> },
+      { path: "update/:id", element: <PrivateRoute><UpdatePost /></PrivateRoute> },
+      { path: "details/:id", element: <PrivateRoute><PostDetails /></PrivateRoute> },
 
     ]
   },
