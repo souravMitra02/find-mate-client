@@ -5,7 +5,7 @@ const FeaturedPosts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/featured")
+    fetch("https://find-mate.netlify.app/featured")
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((error) => console.error("Error fetching featured posts:", error));
@@ -13,7 +13,7 @@ const FeaturedPosts = () => {
 
   return (
     <section className="my-10 px-4 max-w-7xl mx-auto pt-10 lg:pt-20">
-      <h2 className="text-4xl font-bold mb-10 text-center text-gray-900 dark:text-gray-100">
+      <h2 className="text-4xl font-bold mb-10 text-center dark:text-white">
         Featured Roommates
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">

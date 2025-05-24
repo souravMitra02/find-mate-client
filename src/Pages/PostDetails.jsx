@@ -12,10 +12,9 @@ const PostDetails = () => {
   const [showContact, setShowContact] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/listings/${id}`)
+    fetch(`https://roommate-finder-server-pi.vercel.app/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setListing(data);
         setLikeCount(data.likeCount || 0);
         setLoading(false);
@@ -36,7 +35,7 @@ const PostDetails = () => {
       return;
     }
 
-    fetch(`http://localhost:3000/listings/${id}`, {
+    fetch(`https://roommate-finder-server-pi.vercel.app/listings/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ likeCount: likeCount + 1 }),

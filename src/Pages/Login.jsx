@@ -16,7 +16,7 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
-        console.log("Login Success:", result.user);
+        console.log(result);
 
         Swal.fire({
           icon: "success",
@@ -43,7 +43,7 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log("Google Login Success:", result.user);
+        
 
         Swal.fire({
           icon: "success",

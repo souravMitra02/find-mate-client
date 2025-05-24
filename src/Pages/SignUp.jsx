@@ -52,7 +52,6 @@ const SignUp = () => {
           });
       })
       .catch((error) => {
-        console.log(error.code, error.message);
         Swal.fire({
           icon: "error",
           title: "Registration Failed",

@@ -14,7 +14,7 @@ const AddPost = () => {
     newListing.userEmail = user?.email || "";
     newListing.userName = user?.displayName || "";
 
-    fetch("http://localhost:3000/listings", {
+    fetch("https://roommate-finder-server-pi.vercel.app/listings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newListing),
