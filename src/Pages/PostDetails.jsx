@@ -67,7 +67,7 @@ const PostDetails = () => {
   }
 
   return (
-    <div className="max-w-3xl mx-auto p-4 sm:p-6 lg:p-8 bg-white rounded-lg shadow-md">
+    <div className="max-w-3xl mx-auto p-4 sm:p-6 lg:p-8 bg-white rounded-lg shadow-md mt-10">
       <p className="mb-4 text-center text-lg font-semibold text-indigo-700">
         {likeCount} {likeCount === 1 ? "person is" : "people are"} interested in
       </p>
@@ -107,7 +107,7 @@ const PostDetails = () => {
 
       {showContact && (
         <p className="mt-6 text-center sm:text-left text-lg text-gray-900">
-          <span className="font-semibold">Contact Number:</span> {listing.contactNumber || "N/A"}
+          <span className="font-semibold">Contact Number:</span> {listing.contact || "N/A"}
               </p>
       )}
     </div>
