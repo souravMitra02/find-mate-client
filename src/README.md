@@ -4,8 +4,8 @@ Find your perfect roommate easily! Our platform connects people searching for ro
 
 ##  Live Website
 
-[ Visit Live Site](https://your-live-site-url.netlify.app) 
-## ✨ Key Features
+[ Visit Live Site](https://find-mate.netlify.app/) 
+##  Key Features
 
 -  **Authentication System**: Email-password and Google login with protected/private routes.
 -  **Add Roommate Listings**: Users can submit detailed posts including rent, room type, location, and lifestyle preferences.
