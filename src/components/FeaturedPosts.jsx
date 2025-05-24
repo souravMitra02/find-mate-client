@@ -5,7 +5,7 @@ const FeaturedPosts = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("https://find-mate.netlify.app/featured")
+    fetch("https://roommate-finder-server-pi.vercel.app/featured")
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((error) => console.error("Error fetching featured posts:", error));
