@@ -6,14 +6,23 @@ import { AuthContext } from "../AuthProvider";
 const MyListings = () => {
   const { user } = useContext(AuthContext);
   const [listings, setListings] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!user?.email) return;
 
+    setLoading(true);
     fetch(`http://localhost:3000/my-listings?email=${user.email}`)
       .then((res) => res.json())
-      .then((data) => setListings(data));
+      .then((data) => {
+        setListings(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
   }, [user]);
 
   const handleDelete = (id) => {
@@ -37,11 +46,18 @@ const MyListings = () => {
     });
   };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <span className="loading loading-spinner loading-lg text-primary"></span>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-5xl mx-auto p-4">
       <h2 className="text-2xl font-bold text-center mb-4">My Listings</h2>
 
-      {/* Responsive wrapper with horizontal scroll on small screens */}
       <div className="overflow-x-auto">
         <table className="min-w-full border border-gray-300 text-center">
           <thead className="bg-gray-100">

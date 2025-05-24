@@ -95,7 +95,7 @@ const AddPost = () => {
             type="text"
             name="contact"
             required
-            placeholder="Contact Info (Phone/Email)"
+            placeholder="Contact Info"
             className="input input-bordered w-full bg-white/90 text-black placeholder-gray-700"
           />
 
