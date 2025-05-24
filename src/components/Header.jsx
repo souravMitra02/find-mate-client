@@ -1,16 +1,14 @@
-import {  useContext } from "react";
-import { NavLink, useNavigate } from "react-router";
-import { AuthContext } from "../AuthProvider";
-import Swal from "sweetalert2";
-import { Tooltip } from 'react-tooltip';
-import ThemeToggle from "./ThemeToggle";
+import { use } from "react";
+import { NavLink, useNavigate } from "react-router"; // Use 'react-router-dom' not just 'react-router'
 
+import Swal from "sweetalert2";
+import ThemeToggle from "./ThemeToggle";
+import { AuthContext } from "../AuthProvider";
 
 const Header = () => {
-    
-
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = use(AuthContext);
   const navigate = useNavigate();
+
   const handleLogOut = () => {
     logOut()
       .then(() => {
@@ -30,7 +28,7 @@ const Header = () => {
         });
       });
   };
-    
+
   const navLinks = (
     <>
       <li>
@@ -80,10 +78,6 @@ const Header = () => {
     </>
   );
 
-    
-    
-    
-    
   return (
     <div className="shadow-sm bg-base-100 sticky top-0 z-50">
       <div className="navbar max-w-7xl mx-auto">
@@ -128,41 +122,37 @@ const Header = () => {
 
         {/* Right - Auth Section + Theme Toggle */}
         <div className="navbar-end gap-3 items-center">
-        <ThemeToggle></ThemeToggle>
+          <ThemeToggle />
 
           {!user ? (
             <>
               <NavLink to="/login" className="btn btn-sm btn-outline">
                 Login
               </NavLink>
-              <NavLink
-                to="/register"
-                className="btn btn-sm btn-primary text-white"
-              >
+              <NavLink to="/register" className="btn btn-sm btn-primary text-white">
                 Register
               </NavLink>
             </>
           ) : (
-            <>
-              <div className="relative group">
-                <>
-  <img
-    src={user?.photoURL || ""}
-    alt="user"
-    className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer"
-    data-tooltip-id="user-tooltip"
-    data-tooltip-content={user?.displayName || "User"}
-  />
-  <Tooltip id="user-tooltip" place="bottom" />
-</>
+            <div className="relative group">
+              <img
+                src={user?.photoURL || ""}
+                alt="user"
+                className="w-10 h-10 rounded-full border-2 border-primary cursor-pointer"
+              />
+              {/* Hover dropdown */}
+              <div className="absolute right-0 mt-2 w-40 bg-white border rounded-lg shadow-lg p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50">
+                <p className="text-sm font-semibold text-gray-700 mb-2 text-center">
+                  {user?.displayName || "User"}
+                </p>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-sm btn-error w-full text-white"
+                >
+                  Log Out
+                </button>
               </div>
-              <button
-                onClick={handleLogOut}
-                className="btn btn-sm btn-error text-white"
-              >
-                Log Out
-              </button>
-            </>
+            </div>
           )}
         </div>
       </div>

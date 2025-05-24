@@ -3,7 +3,7 @@ import React, { use } from 'react';
 import { AuthContext } from './AuthProvider';
 import { Navigate } from 'react-router';
 
-const PrivateRoute = () => {
+const PrivateRoute = ({children}) => {
     const { user, loading } = use(AuthContext);
  if (loading) {
     return <div className="flex justify-center items-center h-screen">
@@ -13,7 +13,8 @@ const PrivateRoute = () => {
 
   if (!user) {
     return <Navigate to="/login"></Navigate>;
-  }
+    }
+    return children
 };
 
 export default PrivateRoute;

@@ -1,61 +1,132 @@
-// AddPost.jsx
-import { use } from "react";
-
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import React, { use } from "react";
+import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider";
 
 const AddPost = () => {
   const { user } = use(AuthContext);
 
-  const handleAddPost = async (e) => {
+  const handleAddPost = (e) => {
     e.preventDefault();
     const form = e.target;
+
+    
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
+    const newListing = Object.fromEntries(formData.entries());
 
-    data.userEmail = user?.email;
-    data.userName = user?.displayName;
+    newListing.userEmail = user?.email || "";
+    newListing.userName = user?.displayName || "";
 
-    const res = await fetch("http://localhost:3000/add-post", {
+    fetch("http://localhost:3000/listings", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    });
-
-    const result = await res.json();
-
-    if (result.insertedId) {
-      toast.success("Post added successfully!");
-      form.reset();
-    } else {
-      toast.error("Failed to add post.");
-    }
+      body: JSON.stringify(newListing),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId || data.acknowledged) {
+          Swal.fire({
+            icon: "success",
+            title: "Listing Added Successfully!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          form.reset();
+        }
+      })
+      .catch((err) => {
+        Swal.fire("Error", err.message, "error");
+      });
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <h2 className="text-2xl font-bold text-center mb-4">Add Roommate Post</h2>
+    <div className="max-w-3xl mx-auto mt-10 p-6 bg-white rounded shadow">
+      <h2 className="text-2xl font-bold mb-6">Add New Roommate Post</h2>
       <form onSubmit={handleAddPost} className="space-y-4">
 
-        <input name="title" placeholder="Title" required className="w-full border px-3 py-2 rounded" />
-        <input name="location" placeholder="Location" required className="w-full border px-3 py-2 rounded" />
-        <input name="rent" type="number" placeholder="Rent" required className="w-full border px-3 py-2 rounded" />
-        <input name="roomType" placeholder="Room Type (Single/Shared)" required className="w-full border px-3 py-2 rounded" />
-        <input name="lifestyle" placeholder="Lifestyle (Pets/Smoking/etc.)" className="w-full border px-3 py-2 rounded" />
-        <textarea name="description" placeholder="Description" required className="w-full border px-3 py-2 rounded" />
-        <input name="contactInfo" placeholder="Contact Info" required className="w-full border px-3 py-2 rounded" />
-        
-        <select name="availability" required className="w-full border px-3 py-2 rounded">
-          <option value="">Select Availability</option>
-          <option value="Available">Available</option>
-          <option value="Not Available">Not Available</option>
+        <input
+          type="text"
+          name="title"
+          required
+          placeholder="Title (e.g., Looking for roommate in NYC)"
+          className="input input-bordered w-full"
+        />
+
+        <input
+          type="text"
+          name="location"
+          required
+          placeholder="Location"
+          className="input input-bordered w-full"
+        />
+
+        <input
+          type="number"
+          name="rent"
+          required
+          placeholder="Rent Amount"
+          className="input input-bordered w-full"
+        />
+
+        <select
+          name="roomType"
+          required
+          className="select select-bordered w-full"
+        >
+          <option value="">Select Room Type</option>
+          <option value="Single">Single</option>
+          <option value="Shared">Shared</option>
         </select>
 
-        <input readOnly value={user?.email || ""} className="w-full border bg-gray-100 px-3 py-2 rounded" />
-        <input readOnly value={user?.displayName || ""} className="w-full border bg-gray-100 px-3 py-2 rounded" />
+        <input
+          type="text"
+          name="lifestyle"
+          required
+          placeholder="Lifestyle Preferences (e.g. No smoking, Pet friendly)"
+          className="input input-bordered w-full"
+        />
 
-        <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded">Add</button>
+        <textarea
+          name="description"
+          required
+          placeholder="Description"
+          className="textarea textarea-bordered w-full"
+        />
+
+        <input
+          type="text"
+          name="contact"
+          required
+          placeholder="Contact Info (Phone/Email)"
+          className="input input-bordered w-full"
+        />
+
+        <select
+          name="availability"
+          required
+          className="select select-bordered w-full"
+        >
+          <option value="available">Available</option>
+          <option value="not available">Not Available</option>
+        </select>
+
+        <input
+          type="email"
+          value={user?.email || ""}
+          readOnly
+          className="input input-bordered w-full bg-gray-100"
+          placeholder="Your Email"
+        />
+        <input
+          type="text"
+          value={user?.displayName || ""}
+          readOnly
+          className="input input-bordered w-full bg-gray-100"
+          placeholder="Your Name"
+        />
+
+        <button type="submit" className="btn btn-primary w-full">
+          Add Post
+        </button>
       </form>
     </div>
   );
