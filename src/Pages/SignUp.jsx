@@ -3,11 +3,11 @@ import banner2 from "../assets/banner32.jpg";
 import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const SignUp = () => {
   const { createUser, googleSignIn } = use(AuthContext);
-
+const navigate = useNavigate()
   const handleSignUp = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -69,6 +69,9 @@ const SignUp = () => {
           title: "Google Sign-In Successful",
           text: `Welcome, ${user.displayName || "User"}!`,
         });
+        navigate('/')  
+          
+          
       })
       .catch((error) => {
         console.error("Google SignIn Error:", error.message);
