@@ -13,7 +13,7 @@ import banner3 from '../assets/bannerroom.jpg';
 
 const Banner = () => {
   return (
-    <div className="relative w-full h-[80vh] md:h-[100vh]">
+    <div className="relative w-full h-[80vh] md:h-[100vh] mb-10">
       {/* Overlay Text */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center z-20 px-6 max-w-3xl">
         <h1 className="text-4xl md:text-4xl font-extrabold tracking-wide drop-shadow-lg mb-5">
@@ -84,7 +84,7 @@ shadow-lg rounded-lg p-6 flex flex-col md:flex-row flex-wrap items-center gap-4 
       className="flex-1 min-w-[230px] md:min-w-[180px] rounded-full py-2 px-5 border border-gray-300 focus:border-2 focus:border-blue-600 focus:outline-none bg-white"
       defaultValue=""
     >
-      <option value="" disabled>Room Type</option>
+      <option value="" >Room Type</option>
       <option value="single">Single</option>
       <option value="shared">Shared</option>
       <option value="any">Any</option>

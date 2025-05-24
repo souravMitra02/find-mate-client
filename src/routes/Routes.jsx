@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         { index: true, element: <Home /> }, 
       { path: "login", element: <Login /> },
           { path: "register", element: <SignUp /> },
-             { path: "add-post", element: <PrivateRoute><AddPost /></PrivateRoute> },
+             { path: "/add-post", element: <PrivateRoute><AddPost /></PrivateRoute> },
       { path: "browse-listings", element: <BrowseListings /> },
       { path: "my-listings", element: <PrivateRoute><MyListings /></PrivateRoute> },
       { path: "update/:id", element: <PrivateRoute><UpdatePost /></PrivateRoute> },
