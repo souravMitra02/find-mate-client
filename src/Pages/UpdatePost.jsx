@@ -9,7 +9,6 @@ const UpdatePost = () => {
   const navigate = useNavigate();
   const [listing, setListing] = useState(null);
 
-  // Fetch the listing details by ID
   useEffect(() => {
     fetch(`https://roommate-finder-server-pi.vercel.app/listings/${id}`)
       .then(res => res.json())

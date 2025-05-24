@@ -12,7 +12,7 @@ const PostDetails = () => {
   const [showContact, setShowContact] = useState(false);
 
   useEffect(() => {
-    fetch(`https://roommate-finder-server-pi.vercel.app/${id}`)
+    fetch(`https://roommate-finder-server-pi.vercel.app/listings/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setListing(data);
