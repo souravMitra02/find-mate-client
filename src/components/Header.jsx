@@ -1,6 +1,5 @@
 import { use } from "react";
-import { NavLink, useNavigate } from "react-router"; // Use 'react-router-dom' not just 'react-router'
-
+import { NavLink, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import ThemeToggle from "./ThemeToggle";
 import { AuthContext } from "../AuthProvider";
@@ -107,12 +106,12 @@ const Header = () => {
               {navLinks}
             </ul>
           </div>
-          <NavLink to="/" className="text-2xl font-bold ml-2">
-            <h2>
-              <span className="text-indigo-400">Find</span>
-              <span className="text-orange-500">Mate</span>
-            </h2>
-          </NavLink>
+         <NavLink to="/" className="text-2xl font-bold ml-2">
+  <h2 className="flex items-center gap-1">
+    <span className="text-indigo-400">Find</span>
+    <span className="text-orange-500">Mate</span>
+  </h2>
+</NavLink>
         </div>
 
         {/* Center - Desktop Menu */}
