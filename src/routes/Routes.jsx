@@ -10,22 +10,54 @@ import MyListings from "../Pages/MyListings";
 import UpdatePost from "../Pages/UpdatePost";
 import PostDetails from "../Pages/PostDetails";
 import PrivateRoute from "../PrivateRoute";
+import About from "../Pages/About";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-        element: <MainLayout></MainLayout>,
-        errorElement: <ErrorPage></ErrorPage>,
-        children: [
-        { index: true, element: <Home /> }, 
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      { index: true, element: <Home /> },
       { path: "login", element: <Login /> },
-          { path: "register", element: <SignUp /> },
-             { path: "/add-post", element: <PrivateRoute><AddPost /></PrivateRoute> },
+      { path: "register", element: <SignUp /> },
+      {
+        path: "/add-post",
+        element: (
+          <PrivateRoute>
+            <AddPost />
+          </PrivateRoute>
+        ),
+      },
       { path: "browse-listings", element: <BrowseListings /> },
-      { path: "my-listings", element: <PrivateRoute><MyListings /></PrivateRoute> },
-      { path: "update/:id", element: <PrivateRoute><UpdatePost /></PrivateRoute> },
-      { path: "details/:id", element: <PrivateRoute><PostDetails /></PrivateRoute> },
-
-    ]
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "my-listings",
+        element: (
+          <PrivateRoute>
+            <MyListings />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "update/:id",
+        element: (
+          <PrivateRoute>
+            <UpdatePost />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "details/:id",
+        element: (
+          <PrivateRoute>
+            <PostDetails />
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
 ]);
