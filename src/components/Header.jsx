@@ -50,6 +50,36 @@ const Header = () => {
           Browse Listings
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/browse-listings"
+          className={({ isActive }) =>
+            isActive ? "text-primary font-semibold" : ""
+          }
+        >
+          About Us
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/browse-listings"
+          className={({ isActive }) =>
+            isActive ? "text-primary font-semibold" : ""
+          }
+        >
+          Contact
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/browse-listings"
+          className={({ isActive }) =>
+            isActive ? "text-primary font-semibold" : ""
+          }
+        >
+          Support
+        </NavLink>
+      </li>
       {user && (
         <>
           <li>
@@ -78,7 +108,7 @@ const Header = () => {
   );
 
   return (
-    <div className="shadow-sm bg-base-100 sticky top-0 z-50">
+    <div className="shadow-sm bg-[#F2F7F8] sticky top-0 z-50">
       <div className="navbar max-w-7xl mx-auto">
         {/* Left - Logo & Mobile Menu */}
         <div className="navbar-start">
