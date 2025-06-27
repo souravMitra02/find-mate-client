@@ -11,6 +11,7 @@ import UpdatePost from "../Pages/UpdatePost";
 import PostDetails from "../Pages/PostDetails";
 import PrivateRoute from "../PrivateRoute";
 import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "my-listings",
