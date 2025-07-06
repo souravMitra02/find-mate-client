@@ -94,7 +94,7 @@ const BrowseListings = () => {
                 Location: <span className="font-medium">{listing.location}</span>
               </p>
               <p className="text-sm text-gray-600 mb-1">
-                Rent: <span className="font-medium">${listing.rent}</span>
+                Rent: <span className="font-medium">{listing.rent} Taka</span>
               </p>
               <p className="text-sm text-gray-600 mb-3">
                 Room Type: <span className="font-medium">{listing.roomType}</span>

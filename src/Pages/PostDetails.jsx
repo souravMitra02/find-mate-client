@@ -80,7 +80,7 @@ const PostDetails = () => {
         </div>
         <div className="flex flex-col sm:flex-row sm:space-x-4">
           <span className="font-semibold w-32">Rent:</span>
-          <span>${listing.rent}</span>
+          <span>{listing.rent} Taka</span>
         </div>
         <div className="flex flex-col sm:flex-row sm:space-x-4">
           <span className="font-semibold w-32">Room Type:</span>
