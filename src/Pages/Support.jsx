@@ -55,13 +55,13 @@ const Support = () => {
 
       {/* Tree structure with vertical line */}
       <div className="relative flex flex-col md:flex-row max-w-5xl mx-auto">
-        {/* Vertical line in the center */}
+        {/* Vertical center line - hidden on mobile */}
         <div
           className="hidden md:block absolute top-0 bottom-0 left-1/2 w-[3px] bg-indigo-300 dark:bg-indigo-700 -translate-x-1/2 rounded"
-          style={{ maxHeight: "calc(3 * 9rem + 2 * 3rem)" }}
+          style={{ maxHeight: "calc(3 * 9rem + 2 * 3rem)" }} // height for 3 cards and gaps
         ></div>
 
-        {/* Left side */}
+        {/* Left side cards */}
         <div className="w-full md:w-1/2 space-y-12 pr-0 md:pr-12">
           {leftItems.map((item, idx) => (
             <div
@@ -70,11 +70,12 @@ const Support = () => {
               className="relative bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-indigo-200 dark:border-indigo-700"
               style={{ marginTop: idx === 0 ? "0" : "3rem" }}
             >
-              {/* Dot and connector line */}
+              {/* Dot */}
               <div
                 className="absolute top-12 -right-[26px] w-6 h-6 bg-indigo-600 dark:bg-indigo-400 border-4 border-white dark:border-gray-900 rounded-full"
                 style={{ boxShadow: "0 0 8px rgba(99, 102, 241, 0.6)" }}
               ></div>
+              {/* Connector line */}
               <div
                 className="hidden md:block absolute top-[36px] right-[-27px] h-[4.5rem] border-r-2 border-indigo-300 dark:border-indigo-700"
               ></div>
@@ -87,7 +88,7 @@ const Support = () => {
           ))}
         </div>
 
-        {/* Right side */}
+        {/* Right side cards */}
         <div className="w-full md:w-1/2 space-y-12 pl-0 md:pl-12 mt-16 md:mt-0">
           {rightItems.map((item, idx) => (
             <div
@@ -96,11 +97,12 @@ const Support = () => {
               className="relative bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-indigo-200 dark:border-indigo-700 text-right"
               style={{ marginTop: idx === 0 ? "0" : "3rem" }}
             >
-              {/* Dot and connector line */}
+              {/* Dot */}
               <div
                 className="absolute top-12 -left-[26px] w-6 h-6 bg-indigo-600 dark:bg-indigo-400 border-4 border-white dark:border-gray-900 rounded-full"
                 style={{ boxShadow: "0 0 8px rgba(99, 102, 241, 0.6)" }}
               ></div>
+              {/* Connector line */}
               <div
                 className="hidden md:block absolute top-[36px] left-[-27px] h-[4.5rem] border-l-2 border-indigo-300 dark:border-indigo-700"
               ></div>
